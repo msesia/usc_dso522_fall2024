@@ -1,0 +1,104 @@
+---
+title: "DSO 522: In-Class Workbook 1"
+date: "August 27, 2024"
+author: "Matteo Sesia"
+output:
+  html_notebook:
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+  pdf_document:
+    toc: no
+  html_document:
+    df_print: paged
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+params:
+  solutions: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions
+
+
+Your task is to edit this R Markdown notebook to include your solutions, ensuring that it is well-organized and professional in appearance. Answers must be clear and concise.
+Start by downloading the Rmd file.
+
+**Collaboration Policy.**
+You are allowed to discuss this workbook with your classmates and work in groups. Despite group discussions, each student must write and submit their own solutions.
+
+**Assistance Policy.**
+You may ask for clarifications from the instructor and teaching assistant in class. Do not seek help on these workbooks outside of class, as they are intended to be completed during class time.
+
+**Submission Requirements.**
+Solutions must be submitted on Brightspace as a PDF writeup. Use the 'Knit to PDF' feature in RStudio to prepare your PDF document. Ensure that your PDF document looks like the provided PDF version of the workbook, including all code used to obtain the results in proper code blocks.
+Make sure your PDF writeup includes *your name* in the title (replace my name with yours).
+
+**Grading Criteria.**
+This workbook is worth 10 points. To achieve a grade of 10, your writeup must correctly answer all questions, be easy to understand, and be formatted correctly.
+
+**Work Timeline.**
+You are expected to work on this assignment in class, but you may complete it at home within 24 hours. It is due on August 28, 2024, at 9:30 pm.
+Late submissions will incur a 50% deduction for any initial delay below 24 hours, and an additional 10% deduction for each additional day.
+
+
+Remember, you will need to use the `fpp3` package to complete this assignment, as shown in the lecture.
+
+```{r}
+suppressMessages(library(fpp3))
+```
+
+# Problem 1
+
+Explore the following four time series: `Bricks` from `aus_production`, `Lynx` from `pelt`, `Close` from `gafa_stock`, `Demand` from `vic_elec`.
+
+   1. What is the time interval of each series?
+   2. Use `autoplot()` to produce a time plot of each series. Describe the patterns seen in each series.
+   3. For the last plot, modify the axis labels and title.
+
+Hint: Use `?` (or `help()`) to find out more information about the data in each series.
+  
+
+# Problem 1 - Solutions
+
+
+## Bricks
+
+
+```{r}
+aus_production
+```
+
+The observations are quarterly.
+
+```{r}
+aus_production |> autoplot(Bricks)
+```
+
+An upward trend is apparent until 1980, after which the number of clay bricks being produced starts to decline. A seasonal pattern is evident in this data. Some sharp drops in some quarters can also be seen.
+
+## Lynx
+
+TODO: continue writing your solutions from here.
+
+# Problem 2
+
+Use `filter()` to find what days corresponded to the peak closing price for each of the four stocks in `gafa_stock`.
+
+# Problem 2 - Solutions
+
+TODO: continue writing your solutions from here.
+
+# Problem 3
+
+The `aus_arrivals` data set comprises quarterly international arrivals (in thousands) to Australia from Japan, New Zealand, UK and the US. Use `autoplot()`, `gg_season()` and `gg_subseries()` to compare the differences between the arrivals from these four countries. Can you identify any unusual observations?
+
+# Problem 3 - Solutions
+
+TODO: continue writing your solutions from here.
