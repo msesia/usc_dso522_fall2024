@@ -1,0 +1,101 @@
+---
+title: "DSO 522: In-Class Workbook 2"
+date: "September 2, 2024"
+author: "Ron Li"
+output:
+  html_notebook:
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+  pdf_document:
+    toc: no
+  html_document:
+    df_print: paged
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+params:
+  solutions: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions
+
+
+Your task is to edit this R Markdown notebook to include your solutions, ensuring that it is well-organized and professional in appearance. Answers must be clear and concise.
+Start by downloading the Rmd file.
+
+**Collaboration Policy.**
+You are allowed to discuss this workbook with your classmates and work in groups. Despite group discussions, each student must write and submit their own solutions.
+
+**Assistance Policy.**
+You may ask for clarifications from the instructor and teaching assistant in class. Do not seek help on these workbooks outside of class, as they are intended to be completed during class time.
+
+**Submission Requirements.**
+Solutions must be submitted on Brightspace as a PDF writeup. Use the 'Knit to PDF' feature in RStudio to prepare your PDF document. Ensure that your PDF document looks like the provided PDF version of the workbook, including all code used to obtain the results in proper code blocks.
+Make sure your PDF writeup includes *your name* in the title (replace my name with yours).
+
+**Grading Criteria.**
+This workbook is worth 10 points. To achieve a grade of 10, your writeup must correctly answer all questions, be easy to understand, and be formatted correctly.
+
+**Work Timeline.**
+You are expected to work on this assignment in class, but you may complete it at home within 24 hours. It is due on September 4th, 2024, at 9:30 pm.
+Late submissions will incur a 50% deduction for any initial delay below 24 hours, and an additional 10% deduction for each additional day.
+
+
+Remember, you will need to use the `fpp3` package to complete this assignment, as shown in the lecture. The questions are all from the lecture.
+
+```{r}
+suppressMessages(library(fpp3))
+```
+
+# Problem 1
+
+Use the `global_economy` dataset and filter the dataset to obtain Australia's export data. Plot the data's `7 year` moving average as well. Use `slider::slide_dbl`. 
+
+   1. There will be a warning message when we use moving average. Why is that? How many rows of data are removed?
+   2. What's the effect of `.complete` in the usage of `slider::slide_dbl`?
+
+Hint: Use `?` (or `help()`) to find out more information about the `slider::slide_dbl`.
+  
+
+# Problem 1 - Solutions
+
+
+TODO: continue writing your solutions from here.
+
+# Problem 2
+
+Use `us_retail_employment` data as we built in the lecture slides to answer the following questions.
+
+```{r}
+us_retail_employment |>
+  model(
+    STL(Employed ~ trend(window = 3) +
+                   season(window = "periodic"),
+    robust = TRUE)) |>
+  components() |>
+  autoplot()
+
+```
+
+  1. Why isn't trend component less smooth? 
+  2. Why the remainders are almost 0 all the time
+  3. Use your own words to describe how you would pick a `window` size.
+
+# Problem 2 - Solutions
+
+TODO: continue writing your solutions from here.
+
+# Problem 3
+
+For the general weighted average formula, $$\hat{T}_t = \sum_{j=-k}^k a_j y_{t+j}$$ A common choice in financial analysis is the Exponentially Weighted Moving Average (EWMA). Do your own research and use your own words to explain the advantage of this weight choice.
+
+# Problem 3 - Solutions
+
+TODO: continue writing your solutions from here.
