@@ -1,0 +1,107 @@
+---
+title: "DSO 522: In-Class Workbook 3"
+date: "September 10, 2024"
+author: "Ron Li"
+output:
+  html_notebook:
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+  pdf_document:
+    toc: no
+  html_document:
+    df_print: paged
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+params:
+  solutions: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions
+
+
+Your task is to edit this R Markdown notebook to include your solutions, ensuring that it is well-organized and professional in appearance. Answers must be clear and concise.
+Start by downloading the Rmd file.
+
+**Collaboration Policy.**
+You are allowed to discuss this workbook with your classmates and work in groups. Despite group discussions, each student must write and submit their own solutions.
+
+**Assistance Policy.**
+You may ask for clarifications from the instructor and teaching assistant in class. Do not seek help on these workbooks outside of class, as they are intended to be completed during class time.
+
+**Submission Requirements.**
+Solutions must be submitted on Brightspace as a PDF writeup. Use the 'Knit to PDF' feature in RStudio to prepare your PDF document. Ensure that your PDF document looks like the provided PDF version of the workbook, including all code used to obtain the results in proper code blocks.
+Make sure your PDF writeup includes *your name* in the title (replace my name with yours).
+
+**Grading Criteria.**
+This workbook is worth 10 points. To achieve a grade of 10, your writeup must correctly answer all questions, be easy to understand, and be formatted correctly.
+
+**Work Timeline.**
+You are expected to work on this assignment in class, but you may complete it at home within 24 hours. It is due on September 11th, 2024, at 9:30 pm.
+Late submissions will incur a 50% deduction for any initial delay below 24 hours, and an additional 10% deduction for each additional day.
+
+
+Remember, you will need to use the `fpp3` package to complete this assignment, as shown in the lecture. The questions are all from the lecture.
+
+```{r}
+suppressMessages(library(fpp3))
+```
+
+# Problem 1
+
+Reconstruct the `tourism` dataset we used in class and plot the following graph.
+
+```{r}
+tourism |>
+    filter(State == 'Victoria', Purpose == 'Holiday') |>
+    index_by(Quarter) |> # Quiz: what's the difference between index_by and group_by?
+    summarize(Trips = sum(Trips)) |>
+    ACF(Trips, lag_max = 48) |>
+    autoplot() +
+    labs(title="Victoria Holiday Trips")
+```
+
+ 1. What does a large `acf1` but relatively small `acf10` mean?
+ 2. What does a negative `diff1_acf1` mean conceptually? Hint: use the `feat_acf()` function in the lecture slides.
+
+  
+
+# Problem 1 - Solutions
+
+
+TODO: continue writing your solutions from here.
+
+# Problem 2
+
+Run the following code.
+
+```{r}
+theme_set(theme_gray(base_size = 24))
+tourism |>
+  features(Trips, feat_stl) |>
+  ggplot(aes(x = trend_strength, y = seasonal_strength_year,
+             col = Purpose)) +
+  geom_point() +
+  facet_wrap(vars(State))
+```
+
+1. What question `exactly` does the generated graph try to answer?
+
+# Problem 2 - Solutions
+
+TODO: continue writing your solutions from here.
+
+# Problem 3
+
+What's the difference between `facet_grid` and `facet_wrap`?
+
+# Problem 3 - Solutions
+
+TODO: continue writing your solutions from here.
