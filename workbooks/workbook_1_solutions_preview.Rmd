@@ -3,6 +3,12 @@ title: "DSO 522: In-Class Workbook 1"
 date: "August 27, 2024"
 author: "Matteo Sesia"
 output:
+  html_document:
+    df_print: paged
+    theme: spacelab
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
   html_notebook:
     theme: spacelab
     toc: yes
@@ -10,12 +16,6 @@ output:
     toc_float: yes
   pdf_document:
     toc: no
-  html_document:
-    df_print: paged
-    theme: spacelab
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
 params:
   solutions: true
 ---
@@ -85,6 +85,10 @@ An upward trend is apparent until 1980, after which the number of clay bricks be
 
 ## Lynx
 
+```{r}
+pelt |>
+  autoplot(Lynx)
+```
 TODO: continue writing your solutions from here.
 
 # Problem 2
